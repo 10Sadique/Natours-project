@@ -1,0 +1,54 @@
+
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+html {
+
+    // Defines what 1 rem is.
+    font-size: 62.5%;   // 1rem == 10px; 10/16 == 62.5%
+
+    
+    @include respond(tab-land) {    // width < 1200?
+        font-size: 56.25%; // 1rem == 9px; 9/16 == 56.25%
+    }
+
+    @include respond(tab-port) {    // width < 900?
+        font-size: 50%; // 1rem == 8px; 8/16 == 50%
+    }
+
+    @include respond(big-deaktop) {
+        font-size: 75%; //1rem== 12px; 12/16 == 75%
+    }
+}
+
+
+body {
+    box-sizing: border-box;
+    padding: 3rem;
+
+    &::-webkit-scrollbar {
+        width: 10px;
+    }
+    
+    &::-webkit-scrollbar-track {
+        background-color: $color-grey-light-2;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+        background-color: $color-grey-dark-2;
+        border-radius: 5px;
+    }
+
+    @include respond(tab-port) { padding: 0; } 
+}
+
+::selection {
+    background-color: $color-primary;
+    color: $color-white;
+}
